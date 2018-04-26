@@ -17,8 +17,9 @@ namespace MailSenderLib
             _client = new SmtpClient(Settings.Server, Settings.Port) { EnableSsl = true, Credentials = credentials };
         }
 
-        public void SendMail(MailMessage message, string address)
+        public void SendMail(MailMessage message)
         {
+
             try
             {
                 _client.Send(message);
@@ -32,8 +33,17 @@ namespace MailSenderLib
 
         public void SendMailToList(MailMessage message, List<string> addresses)
         {
+
+
             foreach (var item in addresses)
-                SendMail(message, item);
+            {
+                MailMessage messageToSend = new MailMessage(message.From.ToString(),
+                                                            item, message.Headers[0].ToString(),
+                                                            message.Body
+                                                                        );
+                SendMail(message);
+
+            }
         }
 
     }

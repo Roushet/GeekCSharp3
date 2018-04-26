@@ -37,14 +37,26 @@ namespace MailSender
             var user = UserNameTextBox.Text;
             var pass = PasswordEdit.Password;
 
+            var header = HeaderTextBox.Text;
+            var body = BodyTextBox.Text;
+
             string from = user + "@yandex.ru";
             const string to = "vovanpadawan@gmail.com";
 
+            if (header.Length == 0)
+                header = MailSenderLib.MailResources.DefaultMessageHeader;
+
+            if (body.Length == 0)
+                body= MailSenderLib.MailResources.DefaultMessageBody;
+
+
             EmailSender mailSender = new EmailSender(new NetworkCredential(user, pass));
 
-            var message = new MailMessage(from, to, "Test message", "Test message body");
+            var message = new MailMessage(from, to, header, body);
 
-            mailSender.SendMail(message, to);
+
+            //TODO научиться пробрасывать окошко для вывода ошибок
+            mailSender.SendMail(message);
 
             //try
             //{
