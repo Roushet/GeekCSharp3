@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{64FA7CF3-215B-42DB-8AE3-51F9DA87DE7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderControlsLib", "MailSenderControlsLib\MailSenderControlsLib.csproj", "{D56C89EC-2929-422F-BD63-26CC7232DFC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64FA7CF3-215B-42DB-8AE3-51F9DA87DE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64FA7CF3-215B-42DB-8AE3-51F9DA87DE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64FA7CF3-215B-42DB-8AE3-51F9DA87DE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64FA7CF3-215B-42DB-8AE3-51F9DA87DE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56C89EC-2929-422F-BD63-26CC7232DFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56C89EC-2929-422F-BD63-26CC7232DFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56C89EC-2929-422F-BD63-26CC7232DFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56C89EC-2929-422F-BD63-26CC7232DFC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C286CCAD-4C80-4274-A287-91893408E204}
+	EndGlobalSection
+EndGlobal
