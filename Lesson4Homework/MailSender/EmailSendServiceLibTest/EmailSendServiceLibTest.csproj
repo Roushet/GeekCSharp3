@@ -54,6 +54,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmailSendServiceLib\EmailSendServiceLib.csproj">
+      <Project>{A0FDE0D6-C713-4E3B-883F-6CA81AB13621}</Project>
+      <Name>EmailSendServiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

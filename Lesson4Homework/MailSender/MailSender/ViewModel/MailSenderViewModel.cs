@@ -54,9 +54,9 @@ namespace MailSender.ViewModel
         }
 
         //пропертя для сервера
-        private string _CurrentServer;
+        private KeyValuePair<string, int> _CurrentServer;
 
-        public string CurrentServer
+        public KeyValuePair<string, int> CurrentServer
         {
             get => _CurrentServer;
             set => Set(ref _CurrentServer, value);
@@ -113,15 +113,23 @@ namespace MailSender.ViewModel
 
             //CurrentServer
             int port;
-            bool tryPort = SendersDB.Servers.TryGetValue(CurrentServer, out port);
+            port = CurrentServer.Value;
+            //bool tryPort = SendersDB.Servers.TryGetValue(CurrentServer, out port);
 
 
-            EmailSendService service = new EmailSendService(CurrentServer, port, false, new System.Net.NetworkCredential(name, pass));
+            EmailSendService service = new EmailSendService(CurrentServer.Key, port, true, new System.Net.NetworkCredential(name, pass));
             //получаю лист адресов для рассылки
             List<string> emails = Emails.Select(e => e.Address).ToList<string>();
 
-            service.SendMailToAll(CurrentEmail.Address, Header, Document, emails);
+            try
+            {
+                service.SendMailToAll(CurrentEmail.Address, Header, Document, emails);
 
+            }
+            catch(Exception e)
+            {
+                Debug.Write("Send mail Exception: " + e.Message + " " + e.Source);
+            }
         }
 
         private void GetEmails() => Emails = _DataService.GetEmails();

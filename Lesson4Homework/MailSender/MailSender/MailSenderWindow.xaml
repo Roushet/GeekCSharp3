@@ -118,6 +118,11 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
                     <StackPanel Grid.Column="0" Margin="3">
                         <Calendar SelectionMode="MultipleRange"/>
                         <xctk:TimePicker/>
@@ -129,10 +134,24 @@
                         </Button>
                         <Button Content="Отправить сейчас" Command="{Binding SendMailCommand}"/>
                     </StackPanel>
+
+                    <!--<StatusBar  Margin="5" Height="20" Grid.Row="1" Grid.ColumnSpan="2" >
+                        <StatusBar.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel HorizontalAlignment="Left"/>
+                            </ItemsPanelTemplate>
+                        </StatusBar.ItemsPanel>
+                        <StatusBarItem>
+                            <TextBlock Text="{Binding Path=Error}"/>
+                        </StatusBarItem>
+                    </StatusBar>-->
+
                 </Grid>
+
             </TabItem>
             <TabItem Header="Редактор сообщений">
                 <DockPanel>
+
                     <Grid DockPanel.Dock="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
@@ -141,8 +160,7 @@
                         <TextBlock Text="Заголовок:" Grid.Column="0" Margin="5,5,10,0"/>
                         <TextBox Width="auto" Grid.Column="1" Margin="5,5,5,0" Text="{Binding Header, Mode=TwoWay}"/>
                     </Grid>
-                    <xctk:RichTextBox Name="MailRichBox" Margin="5" Text="{Binding Path=Document, Mode=TwoWay}"/>
-
+                    <xctk:RichTextBox Name="MailRichBox" Margin="5" Text="{Binding Path=Document, Mode=TwoWay}" DockPanel.Dock="Top" Height="300"/>
                 </DockPanel>
             </TabItem>
 
