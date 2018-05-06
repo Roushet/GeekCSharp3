@@ -12,7 +12,7 @@ namespace MailSender
     {
          public static Dictionary<string, string> Senders { get; } = new Dictionary<string, string>
          {
-             { "roushet", "Ytyfdbcnm2008" },
+             { "adasd", "adasda" },
              { "zxc@qwe.ru", Encrypter.Deencrypt(";liq34tjk") },
          };
 

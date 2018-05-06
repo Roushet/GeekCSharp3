@@ -117,6 +117,7 @@ namespace MailSender.ViewModel
 
 
             EmailSendService service = new EmailSendService(CurrentServer, port, false, new System.Net.NetworkCredential(name, pass));
+            //получаю лист адресов для рассылки
             List<string> emails = Emails.Select(e => e.Address).ToList<string>();
 
             service.SendMailToAll(CurrentEmail.Address, Header, Document, emails);
