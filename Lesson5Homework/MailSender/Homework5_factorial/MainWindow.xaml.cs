@@ -20,9 +20,6 @@ namespace Homework5_factorial
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSendServiceLibTest", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework5_factorial", "Homework5_factorial\Homework5_factorial.csproj", "{7F295379-1310-4087-A4B2-1025C58EAC00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework5_factorialTests", "Homework5_factorialTests\Homework5_factorialTests.csproj", "{4E73B321-4459-49E2-B4DD-8022B3EF5467}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7F295379-1310-4087-A4B2-1025C58EAC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F295379-1310-4087-A4B2-1025C58EAC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F295379-1310-4087-A4B2-1025C58EAC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E73B321-4459-49E2-B4DD-8022B3EF5467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E73B321-4459-49E2-B4DD-8022B3EF5467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E73B321-4459-49E2-B4DD-8022B3EF5467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E73B321-4459-49E2-B4DD-8022B3EF5467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
