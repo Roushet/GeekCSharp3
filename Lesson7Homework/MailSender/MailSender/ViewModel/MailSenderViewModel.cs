@@ -42,9 +42,9 @@ namespace MailSender.ViewModel
 
         public ICollectionView EmailsView => _EmailsView?.View;
 
-        private Email _CurrentEmail = new Email();
+        private emails _CurrentEmail = new emails();
 
-        public Email CurrentEmail
+        public emails CurrentEmail
         {
             get => _CurrentEmail;
             set => Set(ref _CurrentEmail, value);
@@ -90,7 +90,7 @@ namespace MailSender.ViewModel
         }
 
         public RelayCommand ReadAllMailsCommand { get; }
-        public RelayCommand<Email> SaveEmailCommand { get; }
+        public RelayCommand<emails> SaveEmailCommand { get; }
 
         //команда отправки сообщения
         public RelayCommand SendMailCommand { get; }
@@ -154,7 +154,7 @@ namespace MailSender.ViewModel
 
         private void OnEmailsCollectionViewSourceFilter(object Sender, FilterEventArgs E)
         {
-            if (!(E.Item is Email email) || string.IsNullOrWhiteSpace(_FilterName)) return;
+            if (!(E.Item is emails email) || string.IsNullOrWhiteSpace(_FilterName)) return;
             if (!email.Name.Contains(_FilterName))
                 E.Accepted = false;
         }

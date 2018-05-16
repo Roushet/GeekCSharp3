@@ -110,11 +110,6 @@
     <Compile Include="emails.cs">
       <DependentUpon>EmailsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Emails.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Emails.dbml</DependentUpon>
-    </Compile>
     <Compile Include="EmailsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,14 +191,6 @@
       <DependentUpon>EmailsModel.edmx</DependentUpon>
     </None>
     <None Include="ViewModelsDiagram.cd" />
-    <None Include="Emails.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Emails.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Emails.dbml.layout">
-      <DependentUpon>Emails.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
