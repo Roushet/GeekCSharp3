@@ -12,16 +12,21 @@ using GalaSoft.MvvmLight.Command;
 using MailSender.Services;
 using EmailSendServiceLib;
 using System.Windows.Documents;
+using System.Data.Entity;
 
 namespace MailSender.ViewModel
 {
     public class MailSenderViewModel : ViewModelBase
     {
+        private MailSenderDBEntities _entities = new MailSenderDBEntities();
+
+
         private IDataAccessService _DataService;
 
-        private ObservableCollection<Email> _Emails = new ObservableCollection<Email>();
+        private ObservableCollection<emails> _Emails = new ObservableCollection<emails>();
 
-        public ObservableCollection<Email> Emails
+
+        public ObservableCollection<emails> Emails
         {
             get => _Emails;
             set
@@ -34,6 +39,7 @@ namespace MailSender.ViewModel
         }
 
         private CollectionViewSource _EmailsView;
+
         public ICollectionView EmailsView => _EmailsView?.View;
 
         private Email _CurrentEmail = new Email();
@@ -89,12 +95,15 @@ namespace MailSender.ViewModel
         //команда отправки сообщения
         public RelayCommand SendMailCommand { get; }
 
+        //public MailSenderViewModel(IDataAccessService data_service)
+
         public MailSenderViewModel(IDataAccessService data_service)
         {
             _DataService = data_service;
 
+
             ReadAllMailsCommand = new RelayCommand(GetEmails);
-            SaveEmailCommand = new RelayCommand<Email>(SaveEmail);
+            //SaveEmailCommand = new RelayCommand<Email>(SaveEmail);
 
             //реализация команды отправки
             SendMailCommand = new RelayCommand(SendEmail);
@@ -119,11 +128,11 @@ namespace MailSender.ViewModel
 
             EmailSendService service = new EmailSendService(CurrentServer.Key, port, true, new System.Net.NetworkCredential(name, pass));
             //получаю лист адресов для рассылки
-            List<string> emails = Emails.Select(e => e.Address).ToList<string>();
+            //List<string> emails = Emails.Select(e => e.Address).ToList<string>();
 
             try
             {
-                service.SendMailToAll(CurrentEmail.Address, Header, Document, emails);
+                //service.SendMailToAll(CurrentEmail.Address, Header, Document, emails);
 
             }
             catch(Exception e)
@@ -132,14 +141,16 @@ namespace MailSender.ViewModel
             }
         }
 
+        //private void GetEmails() => Emails = _DataService.GetEmails();
+
         private void GetEmails() => Emails = _DataService.GetEmails();
 
-        private void SaveEmail(Email email)
-        {
-            email.Id = _DataService.CreateEmail(email);
-            if (email.Id == 0) return;
-            Emails.Add(email);
-        }
+        //private void SaveEmail(Email email)
+        //{
+        //    email.Id = _DataService.CreateEmail(email);
+        //    if (email.Id == 0) return;
+        //    Emails.Add(email);
+        //}
 
         private void OnEmailsCollectionViewSourceFilter(object Sender, FilterEventArgs E)
         {

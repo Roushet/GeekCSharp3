@@ -5,16 +5,41 @@ namespace MailSender.Services
 {
     class DataBaseAccessService : IDataAccessService
     {
-        private readonly EmailsDataContext _DataContext = new EmailsDataContext();
+        //private readonly EmailsDataContext _DataContext = new EmailsDataContext();
+        private MailSenderDBEntities _MailSenderEntities;
 
-        public ObservableCollection<Email> GetEmails() => new ObservableCollection<Email>(_DataContext.Email);
-
-        public int CreateEmail(Email email)
+        public DataBaseAccessService()
         {
-            if (_DataContext.Email.Contains(email)) return email.Id;
-            _DataContext.Email.InsertOnSubmit(email);
-            _DataContext.SubmitChanges();
+            _MailSenderEntities = new MailSenderDBEntities();
+        }
+
+        //        public ObservableCollection<emails> GetEmails() => new ObservableCollection<emails>();
+        public ObservableCollection<emails> GetEmails()
+        {
+            ObservableCollection<emails> EmailList = new ObservableCollection<emails>();
+            foreach (emails item in _MailSenderEntities.emails)
+            {
+                EmailList.Add(item);
+            }
+
+            return EmailList;
+        }
+
+        public int CreateEmail(emails email)
+        {
+            if (_MailSenderEntities.emails.Contains(email)) return email.Id;
+
+            _MailSenderEntities.emails.Add(email);
+            _MailSenderEntities.SaveChanges();
             return email.Id;
         }
+
+        //public int CreateEmail(Email email)
+        //{
+        //    if (_DataContext.Email.Contains(email)) return email.Id;
+        //    _DataContext.Email.InsertOnSubmit(email);
+        //    _DataContext.SubmitChanges();
+        //    return email.Id;
+        //}
     }
 }

@@ -8,8 +8,10 @@ namespace MailSender.Services
 {
     public interface IDataAccessService
     {
-        ObservableCollection<Email> GetEmails();
+        //ObservableCollection<Email> GetEmails();
+        ObservableCollection<emails> GetEmails();
 
-        int CreateEmail(Email email);
+        //int CreateEmail(Email email);
+        int CreateEmail(emails email);
     }
 }
